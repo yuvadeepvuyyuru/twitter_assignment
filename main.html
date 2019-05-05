@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Twitter</title>
+</head>
+<h1><center><strong> Basic Implementation of Twitter </strong></center></h1>
+</br><p><center><strong> Welcome Guest</strong></center></p><p align="right"> {{ url_string }} <a href='{{ url }}'>HERE</a></p>
+{% if user %}
+USER: &nbsp;&nbsp;<a href="/deletedit/{{ myuser.username }}">{{ myuser.uname }}</a>
+<br/><br/>(<a href="/edit">Edit Profile</a>)<br/>
+<br/>INFO:<br/>{{ myuser.userinfo }}
+<p align="right">Followers:{{ list_followers }}&nbsp;&nbsp;
+Following:{{ list_following }}&nbsp;&nbsp;</p>
+<p align="center">
+<br/>Post Tweet:<br/></p>
+<form method='post' action='/edit' align="center">
+<input style="height:55px;width:400px;font-size:14pt;" type='text' name='tweet' required='True' maxlength="280"/>&nbsp;&nbsp;
+<input type='submit' name='button' value='Submit'/>
+</form>
+<br/>
+Search User:
+<form method='get' action='/'>
+<input type='text' name='usersearch'/>&nbsp;&nbsp;&nbsp;
+<input type='submit' name='button' value='Search'/>
+</form>
+{% if a==1 %}
+<a href="/uinfo/{{ lastuser }}">{{ lastuser }}</a>
+{% else %}
+{% endif %}<br/><br/>
+Search Tweet:
+<form method='get' action='/'>
+<input type='text' name='searchtweet'/>&nbsp;&nbsp;&nbsp;
+<input type='submit' name='button' value='Tweet Search'/>
+</form>
+
+<p align="center">VIEW TWEET:<br/>
+{% if b>0 %}
+{% for i in finaltweet %}
+{{ i }}<br/>
+{% endfor %}
+<br/>
+
+{% else %}
+{% endif %}
+<br/>
+{% for i in tff %}
+<br/>
+    {{ i }}</br>
+{% endfor %}
+
+
+{% else %}
+<p align="center">Twitter</p>
+    {% endif %}</p>
+
+<style>
+        body {background-color: cornsilk;}
+        h1 {color: firebrick}
+	</style>
+</body>
+</html>

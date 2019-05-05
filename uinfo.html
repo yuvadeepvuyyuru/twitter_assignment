@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User information</title>
+    <h1><center><strong> Basic Implementation of Twitter </strong></center></h1>
+</br><p><center><strong> Welcome Guest</strong></center></p><p align="right"> {{ url_string }} <a href='{{ url }}'>Sign Out</a></p>
+    </head>
+<body>
+    {% for i in query %}
+    USERNAME:<br/>{{ i.uname }}<br/>
+    <br/>INFO:<br/>{{ i.userinfo }}<br/>
+    <form method='post' action='/uinfo/{{ i.uname }}'>
+        <br/><input type='submit' name='button' value='FOLLOW'/>
+        <input type='submit' name='button' value='UNFOLLOW'/>
+    </form>
+<br/>TWEET:<br/>
+{% for k in l %}
+{{ k }}<br/>
+{% endfor %}
+{% endfor %}
+<br/><a href='/'>HOME</a>
+<style>
+        body {background-color: cornsilk;}
+        h1 {color: firebrick}
+	</style>
+</body>
+</html>
